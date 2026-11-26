@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>TikTok bağlantısı – Merak Atlası</title><link rel="stylesheet" href="style.css"></head>
+<body><main>
+<h1>TikTok bağlantısı</h1>
+<p id="d">Yetki kodu okunuyor…</p>
+<p><input id="k" readonly style="width:100%;font-size:16px;padding:8px"></p>
+<p><button onclick="navigator.clipboard.writeText(document.getElementById('k').value);this.textContent='Kopyalandı'">Adresi kopyala</button></p>
+<p>Bu sayfanın adresini (yukarıdaki kutu) Claude'a ver. Kod birkaç dakika içinde geçersiz olur.</p>
+<script>
+var q=new URLSearchParams(location.search),d=document.getElementById('d');
+document.getElementById('k').value=location.href;
+if(q.get('code'))d.textContent='Yetki alındı ✔';
+else d.textContent='Yetki alınamadı: '+(q.get('error_description')||q.get('error')||'kod yok');
+</script>
+<p><a href="index.html">Ana sayfa</a></p>
+</main></body></html>
